@@ -41,29 +41,83 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
+  return arr.length;
 }
+console.log("Get Length");
+console.log(getLength(items));
+
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+  return arr[arr.length-1];
 }
+console.log("Last Element");
+console.log(last(items));
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x,y);
 }
+const add = function(x,y)
+{
+  return x+y;
+}
+console.log("SumNums");
+console.log(sumNums(3,1, add));
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x,y);
 }
+const multiply = function(x,y)
+{
+  return x * y;
+}
+console.log("multiplyNums");
+console.log(multiplyNums(3,1, multiply));
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-}
+
+  const found = list.filter(function(el){
+    return item === el;
+  })
+
+  if (found.length != 0)
+  {
+    return cb(true);
+  }
+  else 
+  {
+    return cb(false);
+  }
+
+/*if(list.includes(item)){
+  return (`${item} is in the list of items.`)
+
+  }
+else {
+  return (`${item} is not part of the list of items.`)
+    }*/
+  
+    }
+contains("shoe", items, isTrue => {
+  console.log(isTrue)
+});
 
 /* STRETCH PROBLEM */
+
+const items2 = ['Pencil', 'Notebook', 'yo-yo', 'Gum', 'Gum', 'Pencil'];
+
+console.log(items2);
 
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
-}
+
+    return array.filter((item, index) => array.indexOf(item) === index);
+
+  }
+console.log(removeDuplicates(items2));

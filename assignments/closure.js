@@ -4,6 +4,17 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+function Wendys(Food){
+  const food1 = "Chicken Nuggets";
+  const food2 = "Crispy Chicken";
+  console.log(`${Food} is something I like at Wendy's. I also like ${food1} and ${food2}`);
+  function KidsMeal(KidsFood){
+    console.log(KidsFood);
+  }
+  KidsMeal('Double Bacon Cheeseburger');
+}
+Wendys(`Frosty`);
+
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
